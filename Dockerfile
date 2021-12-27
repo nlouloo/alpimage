@@ -11,7 +11,7 @@ LABEL name="https://github.com/nlouloo/alpimage" \
       maintainer="nlou.mail@gmail.com" \
       summary="${SUMMARY}" \
       description="${DESCRIPTION}" \
-### Required labels above - recommended below
+
       url="https://github.com/nlouloo/alpimage" \
       io.k8s.description="${DESCRIPTION}" \
       io.k8s.display-name="${SUMMARY}" \
@@ -27,11 +27,11 @@ RUN mkdir -p ${APP_ROOT} && \
     chgrp -R 0 ${APP_ROOT} && \
     chmod -R g=u ${APP_ROOT} /etc/passwd
 
-### Containers should NOT run as root as a good practice
-USER 1000199
+
+USER 1000990000
 WORKDIR ${APP_ROOT}
 
-### user name recognition at runtime w/ an arbitrary uid - for OpenShift deployments
+
 ENTRYPOINT [ "uid_entrypoint" ]
-# VOLUME ${APP_ROOT}/logs ${APP_ROOT}/data
+
 CMD run
