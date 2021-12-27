@@ -32,6 +32,6 @@ USER 1000990000
 WORKDIR ${APP_ROOT}
 
 
-ENTRYPOINT [ "uid_entrypoint" ]
+ENTRYPOINT [ "uid_entrypoint.sh" ]
 
-CMD run
+CMD run.sh
