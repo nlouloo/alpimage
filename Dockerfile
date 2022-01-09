@@ -20,6 +20,7 @@ LABEL name="https://github.com/nlouloo/alpimage" \
 
 
 ENV APP_ROOT=/opt/app-root
+
 ENV PATH=/usr/local/bin:${APP_ROOT}/.local/bin:${PATH} HOME=${APP_ROOT}
 COPY bin/ /usr/local/bin/
 RUN mkdir -p ${APP_ROOT} && \
@@ -32,6 +33,4 @@ USER 1000990000
 WORKDIR ${APP_ROOT}
 
 
-ENTRYPOINT [ "uid_entrypoint.sh" ]
-
-CMD run.sh
+CMD ["/bin/sleep","infinity"]
