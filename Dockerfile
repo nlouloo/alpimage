@@ -29,7 +29,7 @@ RUN mkdir -p ${APP_ROOT} && \
     chmod -R g=u ${APP_ROOT} /etc/passwd
 
 
-USER 1000990000
+USER 1000800000
 WORKDIR ${APP_ROOT}
 
 
