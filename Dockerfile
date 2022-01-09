@@ -27,6 +27,11 @@ RUN mkdir -p ${APP_ROOT} && \
     chmod -R u+x /usr/local/bin && \
     chgrp -R 0 ${APP_ROOT} && \
     chmod -R g=u ${APP_ROOT} /etc/passwd
+    
+RUN apk update       && \
+    apk add nginx    \
+            vim      
+     
 
 
 USER 1000800000
