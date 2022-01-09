@@ -5,6 +5,8 @@ MAINTAINER nlou <nlou.mail@gmail.com>
 
 ENV SUMMARY="Official Alpine Docker image for educational purposes." \
     DESCRIPTION="Alpine is based on musl, libcand busybox."
+    
+ARG USER_OPS=1000800000    
 
 
 LABEL name="https://github.com/nlouloo/alpimage" \
@@ -30,11 +32,14 @@ RUN mkdir -p ${APP_ROOT} && \
     
 RUN apk update       && \
     apk add nginx    \
-            vim      
+            vim      && \
+    sed -i 's/80 /8080 / '   /etc/nginx/http.d/default.conf && \
+    chown -R ${USER_OPS}:${USER_OPS} /var/lib/nginx
+    
      
 
 
-USER 1000800000
+USER ${USER_OPS}
 WORKDIR ${APP_ROOT}
 
 
